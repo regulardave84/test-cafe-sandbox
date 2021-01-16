@@ -17,4 +17,4 @@ Tests will now run using Chrome.
 
 # Tests
 
-The tests cover the functioanlity of this page: https://devexpress.github.io/testcafe/example/
+The tests cover the functionality of this page: https://devexpress.github.io/testcafe/example/
