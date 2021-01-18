@@ -1,0 +1,18 @@
+{
+	"browsers": "chrome",
+	"src": "./*.js",
+	"reporter": [
+		{
+			"name": "html",
+			"output": "reports/results.html"
+		},
+		{
+			"name": "spec"
+		}
+	],
+	"screenshots": {
+		"path": "screenshots/",
+		"takeOnFails": true,
+		"fullPage": true
+	}
+}
