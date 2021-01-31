@@ -1,6 +1,6 @@
 {
 	"browsers": "chrome",
-	"src": "./*.js",
+	"src": "./fixtures/*.ts",
 	"reporter": [
 		{
 			"name": "html",

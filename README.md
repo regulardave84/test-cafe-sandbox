@@ -1,6 +1,6 @@
 # test-cafe-sandbox
 
-A sandbox repo to play around with the features of test cafe.
+A sandbox repo to play around with the features of Test Cafe using typescript.
 
 # How To Run
 
@@ -9,13 +9,17 @@ are installed on your computer and run the following command:
 
 npm install -g testcafe
 
+Install typescript:
+
+npm install -g typescript
+
 Install the Test Cafe HTML Reporter:
 
 npm install -g testcafe-reporter-html
 
 Once Test Cafe is installed run the following command:
 
-testcafe chrome example.js.
+testcafe chrome example.ts
 
 Tests will now run using Chrome.
 
