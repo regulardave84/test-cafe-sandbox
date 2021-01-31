@@ -16,4 +16,5 @@ export default class ExamplePage {
     async clickSubmitButton() {
         await t.click(this.submitButton);
     }
+
 }
