@@ -5,23 +5,25 @@ A sandbox repo to play around with the features of Test Cafe using typescript.
 # How To Run
 
 Ensure that Node.js (https://nodejs.org/) and npm (https://www.npmjs.com/) 
-are installed on your computer and run the following command:
+are installed on your computer and run the following command in the root directory of this project.
 
-npm install -g testcafe
+Install Test Cafe:
 
-Install typescript:
+npm install testcafe
 
-npm install -g typescript
+Install Typescript:
+
+npm install typescript
 
 Install the Test Cafe HTML Reporter:
 
-npm install -g testcafe-reporter-html
+npm install testcafe-reporter-html
 
 Once Test Cafe is installed run the following command:
 
-testcafe chrome example.ts
+testcafe chrome
 
-Tests will now run using Chrome.
+Tests will now run in the Chrome browser.
 
 # Tests
 
