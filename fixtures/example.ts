@@ -10,8 +10,10 @@ fixture`Getting Started`.page`${Config.baseUrl}/example`;
 test('My first test', async t => {
     const name = 'Chris Davies'
     examplePage.enterTextInToYourNameTextField(name);
-    examplePage.clickSubmitButton();
-    
+    examplePage.checkSupportForTextCheckbox();
+    await t.expect(examplePage.isCheckSupportForTextCheckboxChecked).ok;
+
+    examplePage.clickSubmitButton();    
     await t.expect(BrowserUtils.getCurrentPage()).eql(`${Config.baseUrl}/example/thank-you.html`);
     await t.expect(await thankYouPage.getThankYouMessage()).eql(`Thank you, ${name}!`);
 });
