@@ -1,20 +1,23 @@
 import { Selector, t } from 'testcafe';
 
 export default class ExamplePage {
-    yourNameTextField: Selector;
-    submitButton: Selector;
-    supportForTestingLabel: Selector;
+    private yourNameTextField: Selector;
+    private submitButton: Selector;
+    private supportForTestingLabel: Selector;
 
-    supportForTestingCheckbox: Selector;
-    reusingExistingJavascriptCheckbox: Selector;
-    runningTestsInBackgroundCheckbox: Selector;
-    easyEmbeddingCheckbox: Selector;
-    advancedTrafficCheckbox: Selector;
+    private supportForTestingCheckbox: Selector;
+    private reusingExistingJavascriptCheckbox: Selector;
+    private runningTestsInBackgroundCheckbox: Selector;
+    private easyEmbeddingCheckbox: Selector;
+    private advancedTrafficCheckbox: Selector;
 
-    windowsRadioButton: Selector;
-    macOsRadioButton: Selector;
-    linuxRadioButton: Selector;
+    private windowsRadioButton: Selector;
+    private macOsRadioButton: Selector;
+    private linuxRadioButton: Selector;
 
+    private interfaceDropDown: Selector;
+    private interfaceOption: Selector;
+    
     constructor() {
         this.yourNameTextField = Selector('#developer-name');
         this.submitButton = Selector('#submit-button');
@@ -30,77 +33,89 @@ export default class ExamplePage {
         this.macOsRadioButton = Selector('#macos');
         this.linuxRadioButton = Selector('#linux');
 
+        this.interfaceDropDown = Selector('#preferred-interface');
+        this.interfaceOption = this.interfaceDropDown.find('option');
     }
 
-    async enterTextInToYourNameTextField(text: string) {
+    public async enterTextInToYourNameTextField(text: string) {
         await t.typeText(this.yourNameTextField, text);
     }
 
-    async clickSubmitButton() {
+    public async clickSubmitButton() {
         await t.click(this.submitButton);
     }
 
-    async checkSupportForTextCheckbox() {
+    public async checkSupportForTextCheckbox() {
         await t.click(this.supportForTestingLabel);
     }
 
-    isCheckSupportForTextCheckboxChecked() {
+    public isCheckSupportForTextCheckboxChecked() {
         return this.supportForTestingCheckbox.checked;
     }
 
-    async clickReusingExistingJavascriptCheckbox() {
+    public async clickReusingExistingJavascriptCheckbox() {
         await t.click(this.reusingExistingJavascriptCheckbox);
     }
 
-    isReusingExistingJavascriptCheckboxChecked() {
+    public isReusingExistingJavascriptCheckboxChecked() {
         return this.reusingExistingJavascriptCheckbox.checked;
     }
 
-    async clickRunningTestsInBackgroundCheckbox() {
+    public async clickRunningTestsInBackgroundCheckbox() {
         await t.click(this.runningTestsInBackgroundCheckbox);
     }
 
-    isRunningTestsInBackgroundCheckboxChecked() {
+    public isRunningTestsInBackgroundCheckboxChecked() {
         return this.runningTestsInBackgroundCheckbox.checked;
     }
 
-    async clickEasyEmbeddingCheckbox() {
+    public async clickEasyEmbeddingCheckbox() {
         await t.click(this.easyEmbeddingCheckbox);
     }
 
-    isEasyEmbeddingCheckboxChecked() {
+    public isEasyEmbeddingCheckboxChecked() {
         return this.easyEmbeddingCheckbox.checked;
     }
 
-    async clickAdvancedTrafficCheckbox() {
+    public async clickAdvancedTrafficCheckbox() {
         await t.click(this.advancedTrafficCheckbox);
     }
 
-    isAdvancedTrafficCheckboxChecked() {
+    public isAdvancedTrafficCheckboxChecked() {
         return this.advancedTrafficCheckbox.checked;
     }
 
-    async clickWindowsRadioButton() {
+    public async clickWindowsRadioButton() {
         await t.click(this.windowsRadioButton);
     }
 
-    isWindowsRadioButtonChecked() {
+    public isWindowsRadioButtonChecked() {
         return this.windowsRadioButton.checked;
     }
 
-    async clickMacOsRadioButton() {
+    public async clickMacOsRadioButton() {
         await t.click(this.macOsRadioButton);
     }
 
-    isMacOsRadioButtonChecked() {
+    public isMacOsRadioButtonChecked() {
         return this.macOsRadioButton.checked;
     }
 
-    async clickLinuxRadioButton() {
+    public async clickLinuxRadioButton() {
         await t.click(this.linuxRadioButton);
     }
 
-    isLinuxRadioButtonChecked() {
+    public isLinuxRadioButtonChecked() {
         return this.linuxRadioButton.checked;
+    }
+
+    public async selectOptionFromInterfaceDropDown(option: string) {
+        await t
+            .click(this.interfaceDropDown)
+            .click(this.interfaceOption.withText(option));
+    }
+
+    public getInterfaceDropDownValue(): Promise<string | undefined> {
+        return this.interfaceDropDown.value;
     }
 }

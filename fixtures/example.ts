@@ -34,8 +34,17 @@ test('My first test', async t => {
     examplePage.clickLinuxRadioButton();
     await t.expect(examplePage.isLinuxRadioButtonChecked).ok;
 
-    // TODO: drop down
+    const commandLine = 'Command Line';
+    examplePage.selectOptionFromInterfaceDropDown(commandLine);
+    await t.expect(examplePage.getInterfaceDropDownValue()).eql(commandLine);
 
+    const javaScriptApi = 'JavaScript API';
+    examplePage.selectOptionFromInterfaceDropDown(javaScriptApi);
+    await t.expect(examplePage.getInterfaceDropDownValue()).eql(javaScriptApi);
+
+    const both = 'Both';
+    examplePage.selectOptionFromInterfaceDropDown(both);
+    await t.expect(examplePage.getInterfaceDropDownValue()).eql(both);
 
     // TODO: scale
 
