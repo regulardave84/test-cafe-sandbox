@@ -13,6 +13,34 @@ test('My first test', async t => {
     examplePage.checkSupportForTextCheckbox();
     await t.expect(examplePage.isCheckSupportForTextCheckboxChecked).ok;
 
+    examplePage.clickReusingExistingJavascriptCheckbox();
+    await t.expect(examplePage.isReusingExistingJavascriptCheckboxChecked).ok;
+
+    examplePage.clickRunningTestsInBackgroundCheckbox();
+    await t.expect(examplePage.isRunningTestsInBackgroundCheckboxChecked).ok;
+
+    examplePage.clickEasyEmbeddingCheckbox();
+    await t.expect(examplePage.isEasyEmbeddingCheckboxChecked).ok;
+
+    examplePage.clickAdvancedTrafficCheckbox();
+    await t.expect(examplePage.isAdvancedTrafficCheckboxChecked).ok;
+
+    examplePage.clickWindowsRadioButton();
+    await t.expect(examplePage.isWindowsRadioButtonChecked).ok;
+
+    examplePage.clickMacOsRadioButton();
+    await t.expect(examplePage.isMacOsRadioButtonChecked).ok;
+
+    examplePage.clickLinuxRadioButton();
+    await t.expect(examplePage.isLinuxRadioButtonChecked).ok;
+
+    // TODO: drop down
+
+
+    // TODO: scale
+
+    // TODO: text box
+
     examplePage.clickSubmitButton();    
     await t.expect(BrowserUtils.getCurrentPage()).eql(`${Config.baseUrl}/example/thank-you.html`);
     await t.expect(await thankYouPage.getThankYouMessage()).eql(`Thank you, ${name}!`);
