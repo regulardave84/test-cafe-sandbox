@@ -10,6 +10,8 @@ fixture`Getting Started`.page`${Config.baseUrl}/example`;
 test('My first test', async t => {
     const name = 'Chris Davies'
     examplePage.enterTextInToYourNameTextField(name);
+
+    // Checkboxes
     examplePage.checkSupportForTextCheckbox();
     await t.expect(examplePage.isCheckSupportForTextCheckboxChecked).ok;
 
@@ -25,6 +27,7 @@ test('My first test', async t => {
     examplePage.clickAdvancedTrafficCheckbox();
     await t.expect(examplePage.isAdvancedTrafficCheckboxChecked).ok;
 
+    // Radio buttons
     examplePage.clickWindowsRadioButton();
     await t.expect(examplePage.isWindowsRadioButtonChecked).ok;
 
@@ -34,6 +37,8 @@ test('My first test', async t => {
     examplePage.clickLinuxRadioButton();
     await t.expect(examplePage.isLinuxRadioButtonChecked).ok;
 
+
+    // Drop downs
     const commandLine = 'Command Line';
     examplePage.selectOptionFromInterfaceDropDown(commandLine);
     await t.expect(examplePage.getInterfaceDropDownValue()).eql(commandLine);
@@ -46,18 +51,17 @@ test('My first test', async t => {
     examplePage.selectOptionFromInterfaceDropDown(both);
     await t.expect(examplePage.getInterfaceDropDownValue()).eql(both);
 
-    // TODO: scale
+    // Slide the scale across to one end then the other
+    examplePage.checkIHaveTriedTestCafeCheckbox();
+    await t.expect(examplePage.isIHaveTriedTestCafeCheckboxChecked).ok;
+    examplePage.dragIHaveTriedTestCafeSliderToTheEndAndBack();
 
-    // TODO: text box
+    // Text box
+    const comments = 'Here are my comments.';
+    examplePage.enterTextInToLetUsKnowWhatYouThinkTextbox(comments);
+    await t.expect(examplePage.getTextFromLetUsKnowWhatYouThinkTextbox()).eql(comments);
 
     examplePage.clickSubmitButton();    
     await t.expect(BrowserUtils.getCurrentPage()).eql(`${Config.baseUrl}/example/thank-you.html`);
     await t.expect(await thankYouPage.getThankYouMessage()).eql(`Thank you, ${name}!`);
 });
-
-// TODO: tests for Which features are important to you
-
-
-
-
-

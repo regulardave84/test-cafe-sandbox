@@ -17,6 +17,11 @@ export default class ExamplePage {
 
     private interfaceDropDown: Selector;
     private interfaceOption: Selector;
+
+    private iHaveTriedTestCafeCheckbox: Selector;
+    private iHaveTriedTestCafeSlider: Selector;
+
+    private letUsKnowWhatYouThinkTextbox: Selector;
     
     constructor() {
         this.yourNameTextField = Selector('#developer-name');
@@ -35,6 +40,11 @@ export default class ExamplePage {
 
         this.interfaceDropDown = Selector('#preferred-interface');
         this.interfaceOption = this.interfaceDropDown.find('option');
+
+        this.iHaveTriedTestCafeCheckbox = Selector('#tried-test-cafe');
+        this.iHaveTriedTestCafeSlider = Selector('#slider');
+
+        this.letUsKnowWhatYouThinkTextbox = Selector('#comments');
     }
 
     public async enterTextInToYourNameTextField(text: string) {
@@ -115,7 +125,29 @@ export default class ExamplePage {
             .click(this.interfaceOption.withText(option));
     }
 
-    public getInterfaceDropDownValue(): Promise<string | undefined> {
+    public getInterfaceDropDownValue(): Promise<string|undefined> {
         return this.interfaceDropDown.value;
+    }
+
+    public async checkIHaveTriedTestCafeCheckbox() {
+        await t.click(this.iHaveTriedTestCafeCheckbox);
+    }
+
+    public isIHaveTriedTestCafeCheckboxChecked() {
+        return this.iHaveTriedTestCafeCheckbox.checked;
+    }
+
+    public async dragIHaveTriedTestCafeSliderToTheEndAndBack() {
+        await t
+            .drag(this.iHaveTriedTestCafeSlider, 800, 0, { offsetX: 10, offsetY: 10 })
+            .drag(this.iHaveTriedTestCafeSlider, 0, 800, { offsetX: 10, offsetY: 10 });
+    }
+
+    public async enterTextInToLetUsKnowWhatYouThinkTextbox(text: string) {
+        await t.typeText(this.letUsKnowWhatYouThinkTextbox, text);
+    }
+
+    public getTextFromLetUsKnowWhatYouThinkTextbox(): Promise<string|undefined> {
+        return this.letUsKnowWhatYouThinkTextbox.value;
     }
 }
