@@ -5,7 +5,7 @@ import BrowserUtils from '../utils/browser-utils';
 
 const examplePage = new ExamplePage();
 const thankYouPage = new ThankYouPage();
-fixture`Example Page`.page`${Config.baseUrl}/example`;
+fixture('Example Page').page`${Config.baseUrl}/example`;
 
 test('Full test of example page form.', async t => {
     const name = 'Chris Davies'
