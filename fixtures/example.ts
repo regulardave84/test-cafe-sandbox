@@ -5,9 +5,9 @@ import BrowserUtils from '../utils/browser-utils';
 
 const examplePage = new ExamplePage();
 const thankYouPage = new ThankYouPage();
-fixture`Getting Started`.page`${Config.baseUrl}/example`;
+fixture`Example Page`.page`${Config.baseUrl}/example`;
 
-test('My first test', async t => {
+test('Full test of example page form.', async t => {
     const name = 'Chris Davies'
     examplePage.enterTextInToYourNameTextField(name);
 
