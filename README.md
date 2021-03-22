@@ -7,6 +7,10 @@ A sandbox repo to play around with the features of Test Cafe using typescript.
 Ensure that Node.js (https://nodejs.org/) and npm (https://www.npmjs.com/) 
 are installed on your computer and run the following command in the root directory of this project.
 
+Install ts-node:
+
+npm install ts-node
+
 Install Test Cafe:
 
 npm install testcafe

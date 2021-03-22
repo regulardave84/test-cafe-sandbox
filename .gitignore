@@ -1,4 +1,4 @@
 .vs/*
-/reports/*
-/screenshots/*
-/node_modules/*
+reports/*
+screenshots/*
+node_modules/*
