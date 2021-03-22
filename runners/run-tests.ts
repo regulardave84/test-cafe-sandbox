@@ -3,15 +3,28 @@ const createTestCafe = require('testcafe');
 (async () => {
     const testCafe = await createTestCafe();
 
-    const runner1 = testCafe
-        .createRunner()
-        .src(["fixtures/example.ts"]);
+    const fixturePath = '../fixtures/';
+    const browser = 'chrome';
 
-    const runner2 = testCafe
-        .createRunner()
-        .src(["fixtures/thank-you.ts"]);
+    function createRunner(filename: string): any {
+        return testCafe
+            .createRunner()
+            .src(fixturePath + filename)
+            .browsers(browser);
+    }
 
-    await Promise.all([runner1, runner2].map(runner => runner.run()));
+    var runners: any[] = [];
 
+    var filenames: string[] =
+        [
+            'example.ts',
+            'thank-you.ts'
+        ];
+
+    for (var i = 0; i < filenames.length; i++) {
+        runners.push(createRunner(filenames[i]));
+    } 
+
+    await Promise.all(runners.map(runner => runner.run()));
     await testCafe.close();
 })();
