@@ -1,29 +1,31 @@
+import * as config from '../.testcaferc.json';
+
 const createTestCafe = require('testcafe');
 
 (async () => {
     const testCafe = await createTestCafe();
+    const browser = config.browsers;
 
-    const fixturePath = '../fixtures/';
-    const browser = 'chrome';
-
-    function createRunner(filename: string): any {
+    function createRunner(metaName: string): any {
         return testCafe
             .createRunner()
-            .src(fixturePath + filename)
+            .src('.' + config.src)
+            .filter((_testName: null,
+                _fixtureName: null,
+                _fixturePath: null,
+                _testMeta: null,
+                fixtureMeta: any) => {
+                return fixtureMeta.name === metaName;
+            })
             .browsers(browser);
-    }
+    }       
+
+    var metaNames: string[] = config.metaNamesToRunInParallel;
 
     var runners: any[] = [];
-
-    var filenames: string[] =
-        [
-            'example.ts',
-            'thank-you.ts'
-        ];
-
-    for (var i = 0; i < filenames.length; i++) {
-        runners.push(createRunner(filenames[i]));
-    } 
+    for (var i = 0; i < metaNames.length; i++) {
+        runners.push(createRunner(metaNames[i]));
+    }
 
     await Promise.all(runners.map(runner => runner.run()));
     await testCafe.close();

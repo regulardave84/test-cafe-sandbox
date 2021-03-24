@@ -1,11 +1,11 @@
-import { Selector } from 'testcafe';
 import { Config } from '../config/config';
 import ExamplePage from '../pages/example-page';
 import ThankYouPage from '../pages/thank-you-page';
 import BrowserUtils from '../utils/browser-utils';
 
-fixture `Example Page`
-    .page`${Config.baseUrl}/example`;
+fixture`Example Page`
+    .page`${Config.baseUrl}/example`
+    .meta({ name: 'example-page' });
 
 test('Full test of example page form.', async t => {
     const examplePage = new ExamplePage();
