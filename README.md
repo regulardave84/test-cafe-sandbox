@@ -7,21 +7,7 @@ A sandbox repo to play around with the features of Test Cafe using typescript.
 Ensure that Node.js (https://nodejs.org/) and npm (https://www.npmjs.com/) 
 are installed on your computer and run the following command in the root directory of this project.
 
-Install ts-node:
-
-npm install ts-node
-
-Install Test Cafe:
-
-npm install testcafe
-
-Install Typescript:
-
-npm install typescript
-
-Install the Test Cafe HTML Reporter:
-
-npm install testcafe-reporter-html
+npm install
 
 Once Test Cafe is installed run the following command:
 
@@ -46,6 +32,29 @@ export testEnv=uat
 
 Config files are in JSON and can be found under /config.
 
+# Run Tests in Parallel
+
+In order to run tests in parallel run the following command from the root directory:
+
+ts-node ./runners/run-tests-in-parallel.ts
+
+The tests will run in parallel based on the 'fixturesToRunInParallel' values in .testcaferc.json.
+
 # Reports
 
-Test reports can be found in /reports/results.html.
+Tests ran normally have a report created here: 
+
+/reports/results.html
+
+Tests ran in parallel have a report created for each fixture here: 
+
+/reports/{date time}/{fixture name}_results.html
+
+Tests that fail will have a screenshot present in the Error Details page to the right of the test name.
+
+# Screenshots
+
+Tests that fail have a screenshot automatically generated.  
+These can be found here:
+
+/screenshots/

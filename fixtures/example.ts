@@ -10,7 +10,7 @@ fixture`Example Page`
 test('Full test of example page form.', async t => {
     const examplePage = new ExamplePage();
     const thankYouPage = new ThankYouPage();
-    const name = 'Chris Davies'
+    const name = 'Chris Davies';
     examplePage.enterTextInToYourNameTextField(name);
 
     // Checkboxes

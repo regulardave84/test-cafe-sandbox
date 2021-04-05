@@ -4,7 +4,7 @@
 	"reporter": [
 		{
 			"name": "html",
-			"output": "reports/results.html"
+			"output": "./reports/results.html"
 		},
 		{
 			"name": "spec"
@@ -15,5 +15,5 @@
 		"takeOnFails": true,
 		"fullPage": true
 	},
-	"metaNamesToRunInParallel": [ "example-page", "thank-you-page" ]
+	"fixturesToRunInParallel": [ "example-page", "thank-you-page" ]
 }
