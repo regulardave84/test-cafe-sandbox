@@ -3,12 +3,14 @@ import ExamplePage from '../pages/example-page';
 import ThankYouPage from '../pages/thank-you-page';
 import BrowserUtils from '../utils/browser-utils';
 
-const examplePage = new ExamplePage();
-const thankYouPage = new ThankYouPage();
-fixture`Getting Started`.page`${Config.baseUrl}/example`;
+fixture`Example Page`
+    .page`${Config.baseUrl}/example`
+    .meta({ name: 'example-page' });
 
-test('My first test', async t => {
-    const name = 'Chris Davies'
+test('Full test of example page form.', async t => {
+    const examplePage = new ExamplePage();
+    const thankYouPage = new ThankYouPage();
+    const name = 'Chris Davies';
     examplePage.enterTextInToYourNameTextField(name);
 
     // Checkboxes

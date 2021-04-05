@@ -1,4 +1,4 @@
 .vs/*
-/reports/*
-/screenshots/*
-/package-lock.json
+reports/*
+screenshots/*
+node_modules/*
