@@ -48,7 +48,7 @@ export default class ExamplePage {
     }
 
     public async enterTextInToYourNameTextField(text: string) {
-        await t.typeText(this.yourNameTextField, text);
+        await t.typeText(this.yourNameTextField, text, { paste: true });
     }
 
     public async clickSubmitButton() {
@@ -59,63 +59,63 @@ export default class ExamplePage {
         await t.click(this.supportForTestingLabel);
     }
 
-    public isCheckSupportForTextCheckboxChecked() {
-        return this.supportForTestingCheckbox.checked;
+    public async isCheckSupportForTextCheckboxChecked(): Promise<Boolean | undefined> {
+        return await this.supportForTestingCheckbox.checked;
     }
 
     public async clickReusingExistingJavascriptCheckbox() {
         await t.click(this.reusingExistingJavascriptCheckbox);
     }
 
-    public isReusingExistingJavascriptCheckboxChecked() {
-        return this.reusingExistingJavascriptCheckbox.checked;
+    public async isReusingExistingJavascriptCheckboxChecked(): Promise<Boolean | undefined> {
+        return await this.reusingExistingJavascriptCheckbox.checked;
     }
 
     public async clickRunningTestsInBackgroundCheckbox() {
         await t.click(this.runningTestsInBackgroundCheckbox);
     }
 
-    public isRunningTestsInBackgroundCheckboxChecked() {
-        return this.runningTestsInBackgroundCheckbox.checked;
+    public async isRunningTestsInBackgroundCheckboxChecked(): Promise<Boolean | undefined> {
+        return await this.runningTestsInBackgroundCheckbox.checked;
     }
 
     public async clickEasyEmbeddingCheckbox() {
         await t.click(this.easyEmbeddingCheckbox);
     }
 
-    public isEasyEmbeddingCheckboxChecked() {
-        return this.easyEmbeddingCheckbox.checked;
+    public async isEasyEmbeddingCheckboxChecked(): Promise<Boolean | undefined> {
+        return await this.easyEmbeddingCheckbox.checked;
     }
 
     public async clickAdvancedTrafficCheckbox() {
         await t.click(this.advancedTrafficCheckbox);
     }
 
-    public isAdvancedTrafficCheckboxChecked() {
-        return this.advancedTrafficCheckbox.checked;
+    public async isAdvancedTrafficCheckboxChecked(): Promise<Boolean | undefined> {
+        return await this.advancedTrafficCheckbox.checked;
     }
 
     public async clickWindowsRadioButton() {
         await t.click(this.windowsRadioButton);
     }
 
-    public isWindowsRadioButtonChecked() {
-        return this.windowsRadioButton.checked;
+    public async isWindowsRadioButtonChecked(): Promise<Boolean | undefined> {
+        return await this.windowsRadioButton.checked;
     }
 
     public async clickMacOsRadioButton() {
         await t.click(this.macOsRadioButton);
     }
 
-    public isMacOsRadioButtonChecked() {
-        return this.macOsRadioButton.checked;
+    public async isMacOsRadioButtonChecked(): Promise<Boolean | undefined> {
+        return await this.macOsRadioButton.checked;
     }
 
     public async clickLinuxRadioButton() {
         await t.click(this.linuxRadioButton);
     }
 
-    public isLinuxRadioButtonChecked() {
+    public isLinuxRadioButtonChecked(): Promise<Boolean | undefined> {
         return this.linuxRadioButton.checked;
     }
 
@@ -125,16 +125,16 @@ export default class ExamplePage {
             .click(this.interfaceOption.withText(option));
     }
 
-    public getInterfaceDropDownValue(): Promise<string|undefined> {
-        return this.interfaceDropDown.value;
+    public async getInterfaceDropDownValue(): Promise<string|undefined> {
+        return await this.interfaceDropDown.value;
     }
 
     public async checkIHaveTriedTestCafeCheckbox() {
         await t.click(this.iHaveTriedTestCafeCheckbox);
     }
 
-    public isIHaveTriedTestCafeCheckboxChecked() {
-        return this.iHaveTriedTestCafeCheckbox.checked;
+    public async isIHaveTriedTestCafeCheckboxChecked(): Promise<Boolean | undefined> {
+        return await this.iHaveTriedTestCafeCheckbox.checked;
     }
 
     public async dragIHaveTriedTestCafeSliderToTheEndAndBack() {
@@ -144,10 +144,10 @@ export default class ExamplePage {
     }
 
     public async enterTextInToLetUsKnowWhatYouThinkTextbox(text: string) {
-        await t.typeText(this.letUsKnowWhatYouThinkTextbox, text);
+        await t.typeText(this.letUsKnowWhatYouThinkTextbox, text, { paste: true });
     }
 
-    public getTextFromLetUsKnowWhatYouThinkTextbox(): Promise<string|undefined> {
-        return this.letUsKnowWhatYouThinkTextbox.value;
+    public async getTextFromLetUsKnowWhatYouThinkTextbox(): Promise<string|undefined> {
+        return await this.letUsKnowWhatYouThinkTextbox.value;
     }
 }

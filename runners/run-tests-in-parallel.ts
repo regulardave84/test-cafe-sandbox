@@ -4,7 +4,7 @@ const createTestCafe = require('testcafe');
 
 (async () => {
     const testCafe = await createTestCafe();
-    // semicolons are replaced to make this a valid to be a folder name
+    // colons are replaced to allow this to be valid as part of a folder name
     const date = new Date().toISOString().replace(/:/g, '.');
 
     function createRunner(fixtureName: string): any {

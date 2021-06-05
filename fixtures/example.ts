@@ -42,16 +42,16 @@ test('Full test of example page form.', async t => {
 
     // Drop downs
     const commandLine = 'Command Line';
-    examplePage.selectOptionFromInterfaceDropDown(commandLine);
-    await t.expect(examplePage.getInterfaceDropDownValue()).eql(commandLine);
+    await examplePage.selectOptionFromInterfaceDropDown(commandLine);
+    await t.expect(await examplePage.getInterfaceDropDownValue()).eql(commandLine);
 
     const javaScriptApi = 'JavaScript API';
-    examplePage.selectOptionFromInterfaceDropDown(javaScriptApi);
-    await t.expect(examplePage.getInterfaceDropDownValue()).eql(javaScriptApi);
+    await examplePage.selectOptionFromInterfaceDropDown(javaScriptApi);
+    await t.expect(await examplePage.getInterfaceDropDownValue()).eql(javaScriptApi);
 
     const both = 'Both';
-    examplePage.selectOptionFromInterfaceDropDown(both);
-    await t.expect(examplePage.getInterfaceDropDownValue()).eql(both);
+    await examplePage.selectOptionFromInterfaceDropDown(both);
+    await t.expect(await examplePage.getInterfaceDropDownValue()).eql(both);
 
     // Slide the scale across to one end then the other
     examplePage.checkIHaveTriedTestCafeCheckbox();
@@ -60,10 +60,10 @@ test('Full test of example page form.', async t => {
 
     // Text box
     const comments = 'Here are my comments.';
-    examplePage.enterTextInToLetUsKnowWhatYouThinkTextbox(comments);
-    await t.expect(examplePage.getTextFromLetUsKnowWhatYouThinkTextbox()).eql(comments);
+    await examplePage.enterTextInToLetUsKnowWhatYouThinkTextbox(comments);
+    await t.expect(await examplePage.getTextFromLetUsKnowWhatYouThinkTextbox()).eql(comments);
 
-    examplePage.clickSubmitButton();    
+    await examplePage.clickSubmitButton();    
     await t.expect(BrowserUtils.getCurrentPage()).eql(`${Config.baseUrl}/example/thank-you.html`);
     await t.expect(await thankYouPage.getThankYouMessage()).eql(`Thank you, ${name}!`);
 });
