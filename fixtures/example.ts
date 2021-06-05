@@ -11,59 +11,59 @@ test('Full test of example page form.', async t => {
     const examplePage = new ExamplePage();
     const thankYouPage = new ThankYouPage();
     const name = 'Chris Davies';
-    examplePage.enterTextInToYourNameTextField(name);
+    await examplePage.enterTextInToYourNameTextField(name);
 
     // Checkboxes
-    examplePage.checkSupportForTextCheckbox();
+    await examplePage.checkSupportForTextCheckbox();
     await t.expect(examplePage.isCheckSupportForTextCheckboxChecked).ok;
 
-    examplePage.clickReusingExistingJavascriptCheckbox();
+    await examplePage.clickReusingExistingJavascriptCheckbox();
     await t.expect(examplePage.isReusingExistingJavascriptCheckboxChecked).ok;
 
-    examplePage.clickRunningTestsInBackgroundCheckbox();
+    await examplePage.clickRunningTestsInBackgroundCheckbox();
     await t.expect(examplePage.isRunningTestsInBackgroundCheckboxChecked).ok;
 
-    examplePage.clickEasyEmbeddingCheckbox();
+    await examplePage.clickEasyEmbeddingCheckbox();
     await t.expect(examplePage.isEasyEmbeddingCheckboxChecked).ok;
 
-    examplePage.clickAdvancedTrafficCheckbox();
+    await examplePage.clickAdvancedTrafficCheckbox();
     await t.expect(examplePage.isAdvancedTrafficCheckboxChecked).ok;
 
     // Radio buttons
-    examplePage.clickWindowsRadioButton();
+    await examplePage.clickWindowsRadioButton();
     await t.expect(examplePage.isWindowsRadioButtonChecked).ok;
 
-    examplePage.clickMacOsRadioButton();
+    await examplePage.clickMacOsRadioButton();
     await t.expect(examplePage.isMacOsRadioButtonChecked).ok;
 
-    examplePage.clickLinuxRadioButton();
+    await examplePage.clickLinuxRadioButton();
     await t.expect(examplePage.isLinuxRadioButtonChecked).ok;
 
 
     // Drop downs
     const commandLine = 'Command Line';
-    examplePage.selectOptionFromInterfaceDropDown(commandLine);
-    await t.expect(examplePage.getInterfaceDropDownValue()).eql(commandLine);
+    await examplePage.selectOptionFromInterfaceDropDown(commandLine);
+    await t.expect(await examplePage.getInterfaceDropDownValue()).eql(commandLine);
 
     const javaScriptApi = 'JavaScript API';
-    examplePage.selectOptionFromInterfaceDropDown(javaScriptApi);
-    await t.expect(examplePage.getInterfaceDropDownValue()).eql(javaScriptApi);
+    await examplePage.selectOptionFromInterfaceDropDown(javaScriptApi);
+    await t.expect(await examplePage.getInterfaceDropDownValue()).eql(javaScriptApi);
 
     const both = 'Both';
-    examplePage.selectOptionFromInterfaceDropDown(both);
-    await t.expect(examplePage.getInterfaceDropDownValue()).eql(both);
+    await examplePage.selectOptionFromInterfaceDropDown(both);
+    await t.expect(await examplePage.getInterfaceDropDownValue()).eql(both);
 
     // Slide the scale across to one end then the other
-    examplePage.checkIHaveTriedTestCafeCheckbox();
+    await examplePage.checkIHaveTriedTestCafeCheckbox();
     await t.expect(examplePage.isIHaveTriedTestCafeCheckboxChecked).ok;
-    examplePage.dragIHaveTriedTestCafeSliderToTheEndAndBack();
+    await examplePage.dragIHaveTriedTestCafeSliderToTheEndAndBack();
 
     // Text box
     const comments = 'Here are my comments.';
-    examplePage.enterTextInToLetUsKnowWhatYouThinkTextbox(comments);
-    await t.expect(examplePage.getTextFromLetUsKnowWhatYouThinkTextbox()).eql(comments);
+    await examplePage.enterTextInToLetUsKnowWhatYouThinkTextbox(comments);
+    await t.expect(await examplePage.getTextFromLetUsKnowWhatYouThinkTextbox()).eql(comments);
 
-    examplePage.clickSubmitButton();    
+    await examplePage.clickSubmitButton();    
     await t.expect(BrowserUtils.getCurrentPage()).eql(`${Config.baseUrl}/example/thank-you.html`);
     await t.expect(await thankYouPage.getThankYouMessage()).eql(`Thank you, ${name}!`);
 });

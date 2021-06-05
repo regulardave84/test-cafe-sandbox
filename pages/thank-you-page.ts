@@ -1,20 +1,20 @@
-import { Selector, t } from 'testcafe';
+import { Selector } from 'testcafe';
 
 export default class ExamplePage {
-    thankYouMessage: Selector;
-    learnMoreText: Selector;
+    private thankYouMessage: Selector;
+    private learnMoreText: Selector;
 
     constructor() {
         this.thankYouMessage = Selector('#article-header');
-        this.learnMoreText = Selector('.result-content > p:nth-child(2)');
+        this.learnMoreText = Selector('.result-content').child('p');
     }
 
-    async getThankYouMessage() {
-        return this.thankYouMessage.innerText;
+    public async getThankYouMessage(): Promise<String | undefined> {
+        return await this.thankYouMessage.innerText;
     }
 
-    async getLearnMoreText() {
-        return this.learnMoreText.innerText;
+    public async getLearnMoreText(): Promise<String | undefined> {
+        return await this.learnMoreText.innerText;
     }
 
 }
