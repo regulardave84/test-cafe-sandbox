@@ -11,32 +11,32 @@ test('Full test of example page form.', async t => {
     const examplePage = new ExamplePage();
     const thankYouPage = new ThankYouPage();
     const name = 'Chris Davies';
-    examplePage.enterTextInToYourNameTextField(name);
+    await examplePage.enterTextInToYourNameTextField(name);
 
     // Checkboxes
-    examplePage.checkSupportForTextCheckbox();
+    await examplePage.checkSupportForTextCheckbox();
     await t.expect(examplePage.isCheckSupportForTextCheckboxChecked).ok;
 
-    examplePage.clickReusingExistingJavascriptCheckbox();
+    await examplePage.clickReusingExistingJavascriptCheckbox();
     await t.expect(examplePage.isReusingExistingJavascriptCheckboxChecked).ok;
 
-    examplePage.clickRunningTestsInBackgroundCheckbox();
+    await examplePage.clickRunningTestsInBackgroundCheckbox();
     await t.expect(examplePage.isRunningTestsInBackgroundCheckboxChecked).ok;
 
-    examplePage.clickEasyEmbeddingCheckbox();
+    await examplePage.clickEasyEmbeddingCheckbox();
     await t.expect(examplePage.isEasyEmbeddingCheckboxChecked).ok;
 
-    examplePage.clickAdvancedTrafficCheckbox();
+    await examplePage.clickAdvancedTrafficCheckbox();
     await t.expect(examplePage.isAdvancedTrafficCheckboxChecked).ok;
 
     // Radio buttons
-    examplePage.clickWindowsRadioButton();
+    await examplePage.clickWindowsRadioButton();
     await t.expect(examplePage.isWindowsRadioButtonChecked).ok;
 
-    examplePage.clickMacOsRadioButton();
+    await examplePage.clickMacOsRadioButton();
     await t.expect(examplePage.isMacOsRadioButtonChecked).ok;
 
-    examplePage.clickLinuxRadioButton();
+    await examplePage.clickLinuxRadioButton();
     await t.expect(examplePage.isLinuxRadioButtonChecked).ok;
 
 
@@ -54,9 +54,9 @@ test('Full test of example page form.', async t => {
     await t.expect(await examplePage.getInterfaceDropDownValue()).eql(both);
 
     // Slide the scale across to one end then the other
-    examplePage.checkIHaveTriedTestCafeCheckbox();
+    await examplePage.checkIHaveTriedTestCafeCheckbox();
     await t.expect(examplePage.isIHaveTriedTestCafeCheckboxChecked).ok;
-    examplePage.dragIHaveTriedTestCafeSliderToTheEndAndBack();
+    await examplePage.dragIHaveTriedTestCafeSliderToTheEndAndBack();
 
     // Text box
     const comments = 'Here are my comments.';
