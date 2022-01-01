@@ -9,12 +9,11 @@ export default class ExamplePage {
         this.learnMoreText = Selector('.result-content').child('p');
     }
 
-    public async getThankYouMessage(): Promise<String | undefined> {
-        return await this.thankYouMessage.innerText;
+    public getThankYouMessage(): Promise<String|undefined> {
+        return this.thankYouMessage.innerText;
     }
 
-    public async getLearnMoreText(): Promise<String | undefined> {
-        return await this.learnMoreText.innerText;
+    public getLearnMoreText(): Promise<String|undefined> {
+        return this.learnMoreText.innerText;
     }
-
 }

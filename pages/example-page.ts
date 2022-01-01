@@ -47,107 +47,107 @@ export default class ExamplePage {
         this.letUsKnowWhatYouThinkTextbox = Selector('#comments');
     }
 
-    public async enterTextInToYourNameTextField(text: string) {
+    public async enterTextInToYourNameTextField(text: string): Promise<void> {
         await t.typeText(this.yourNameTextField, text, { paste: true });
     }
 
-    public async clickSubmitButton() {
+    public async clickSubmitButton(): Promise<void> {
         await t.click(this.submitButton);
     }
 
-    public async checkSupportForTextCheckbox() {
+    public async checkSupportForTextCheckbox(): Promise<void> {
         await t.click(this.supportForTestingLabel);
     }
 
-    public async isCheckSupportForTextCheckboxChecked(): Promise<Boolean | undefined> {
+    public async isCheckSupportForTextCheckboxChecked(): Promise<Boolean|undefined> {
         return await this.supportForTestingCheckbox.checked;
     }
 
-    public async clickReusingExistingJavascriptCheckbox() {
+    public async clickReusingExistingJavascriptCheckbox(): Promise<void> {
         await t.click(this.reusingExistingJavascriptCheckbox);
     }
 
-    public async isReusingExistingJavascriptCheckboxChecked(): Promise<Boolean | undefined> {
+    public async isReusingExistingJavascriptCheckboxChecked(): Promise<Boolean|undefined> {
         return await this.reusingExistingJavascriptCheckbox.checked;
     }
 
-    public async clickRunningTestsInBackgroundCheckbox() {
+    public async clickRunningTestsInBackgroundCheckbox(): Promise<void> {
         await t.click(this.runningTestsInBackgroundCheckbox);
     }
 
-    public async isRunningTestsInBackgroundCheckboxChecked(): Promise<Boolean | undefined> {
+    public async isRunningTestsInBackgroundCheckboxChecked(): Promise<Boolean|undefined> {
         return await this.runningTestsInBackgroundCheckbox.checked;
     }
 
-    public async clickEasyEmbeddingCheckbox() {
+    public async clickEasyEmbeddingCheckbox(): Promise<void> {
         await t.click(this.easyEmbeddingCheckbox);
     }
 
-    public async isEasyEmbeddingCheckboxChecked(): Promise<Boolean | undefined> {
+    public async isEasyEmbeddingCheckboxChecked(): Promise<Boolean|undefined> {
         return await this.easyEmbeddingCheckbox.checked;
     }
 
-    public async clickAdvancedTrafficCheckbox() {
+    public async clickAdvancedTrafficCheckbox(): Promise<void> {
         await t.click(this.advancedTrafficCheckbox);
     }
 
-    public async isAdvancedTrafficCheckboxChecked(): Promise<Boolean | undefined> {
+    public async isAdvancedTrafficCheckboxChecked(): Promise<Boolean|undefined> {
         return await this.advancedTrafficCheckbox.checked;
     }
 
-    public async clickWindowsRadioButton() {
+    public async clickWindowsRadioButton(): Promise<void> {
         await t.click(this.windowsRadioButton);
     }
 
-    public async isWindowsRadioButtonChecked(): Promise<Boolean | undefined> {
+    public async isWindowsRadioButtonChecked(): Promise<Boolean|undefined> {
         return await this.windowsRadioButton.checked;
     }
 
-    public async clickMacOsRadioButton() {
+    public async clickMacOsRadioButton(): Promise<void> {
         await t.click(this.macOsRadioButton);
     }
 
-    public async isMacOsRadioButtonChecked(): Promise<Boolean | undefined> {
+    public async isMacOsRadioButtonChecked(): Promise<Boolean|undefined> {
         return await this.macOsRadioButton.checked;
     }
 
-    public async clickLinuxRadioButton() {
+    public async clickLinuxRadioButton(): Promise<void> {
         await t.click(this.linuxRadioButton);
     }
 
-    public isLinuxRadioButtonChecked(): Promise<Boolean | undefined> {
+    public isLinuxRadioButtonChecked(): Promise<Boolean|undefined> {
         return this.linuxRadioButton.checked;
     }
 
-    public async selectOptionFromInterfaceDropDown(option: string) {
+    public async selectOptionFromInterfaceDropDown(option: string): Promise<void> {
         await t
             .click(this.interfaceDropDown)
             .click(this.interfaceOption.withText(option));
     }
 
-    public async getInterfaceDropDownValue(): Promise<string|undefined> {
-        return await this.interfaceDropDown.value;
+    public getInterfaceDropDownValue(): Promise<string|undefined> {
+        return this.interfaceDropDown.value;
     }
 
-    public async checkIHaveTriedTestCafeCheckbox() {
+    public async checkIHaveTriedTestCafeCheckbox(): Promise<void> {
         await t.click(this.iHaveTriedTestCafeCheckbox);
     }
 
-    public async isIHaveTriedTestCafeCheckboxChecked(): Promise<Boolean | undefined> {
+    public async isIHaveTriedTestCafeCheckboxChecked(): Promise<Boolean|undefined> {
         return await this.iHaveTriedTestCafeCheckbox.checked;
     }
 
-    public async dragIHaveTriedTestCafeSliderToTheEndAndBack() {
+    public async dragIHaveTriedTestCafeSliderToTheEndAndBack(): Promise<void> {
         await t
             .drag(this.iHaveTriedTestCafeSlider, 800, 0, { offsetX: 10, offsetY: 10 })
             .drag(this.iHaveTriedTestCafeSlider, 0, 800, { offsetX: 10, offsetY: 10 });
     }
 
-    public async enterTextInToLetUsKnowWhatYouThinkTextbox(text: string) {
+    public async enterTextInToLetUsKnowWhatYouThinkTextbox(text: string): Promise<void> {
         await t.typeText(this.letUsKnowWhatYouThinkTextbox, text, { paste: true });
     }
 
-    public async getTextFromLetUsKnowWhatYouThinkTextbox(): Promise<string|undefined> {
-        return await this.letUsKnowWhatYouThinkTextbox.value;
+    public getTextFromLetUsKnowWhatYouThinkTextbox(): Promise<string|undefined> {
+        return this.letUsKnowWhatYouThinkTextbox.value;
     }
 }
