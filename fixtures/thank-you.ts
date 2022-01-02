@@ -7,8 +7,8 @@ fixture`Thank You Page`
 
 test('Smoke Test Thank You Page', async t => {
     const thankYouPage = new ThankYouPage();
-    await t.expect(await thankYouPage.getThankYouMessage()).eql('Thank you!');
+    await t.expect(thankYouPage.getThankYouMessage()).eql('Thank you!');
 
-    await t.expect(await thankYouPage.getLearnMoreText())
+    await t.expect(thankYouPage.getLearnMoreText())
         .eql('To learn more about TestCafe, please visit:\ndevexpress.github.io/testcafe');
 });
