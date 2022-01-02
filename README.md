@@ -17,7 +17,8 @@ Tests will now run in the Chrome browser.
 
 # Tests
 
-The tests cover the functionality of this page: https://devexpress.github.io/testcafe/example/
+The tests cover the functionality of this page: https://devexpress.github.io/testcafe/example/ using the
+Lean Page Object model: https://johnfergusonsmart.com/page-objects-that-suck-less-tips-for-writing-more-maintainable-page-objects/
 
 # Config
 

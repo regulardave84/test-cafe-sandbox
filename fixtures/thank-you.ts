@@ -1,14 +1,15 @@
 import { Config } from '../config/config';
-import ThankYouPage from '../pages/thank-you-page';
+import ThankYouQueries from '../queries/thank-you-queries';
 
-fixture`Thank You Page`
-    .page`${Config.baseUrl}/example/thank-you.html`
+fixture('Thank You Page')
     .meta({ name: 'thank-you-page' });
 
-test('Smoke Test Thank You Page', async t => {
-    const thankYouPage = new ThankYouPage();
-    await t.expect(thankYouPage.getThankYouMessage()).eql('Thank you!');
+const thankYouQueries: ThankYouQueries = new ThankYouQueries();
 
-    await t.expect(thankYouPage.getLearnMoreText())
+test('Smoke Test Thank You Page', async t => {
+    await t.navigateTo(`${Config.baseUrl}/example/thank-you.html`);
+
+    await t.expect(thankYouQueries.getThankYouMessage()).eql('Thank you!');
+    await t.expect(thankYouQueries.getLearnMoreText())
         .eql('To learn more about TestCafe, please visit:\ndevexpress.github.io/testcafe');
 });
