@@ -1,6 +1,6 @@
 # test-cafe-sandbox
 
-A sandbox repo to play around with the features of Test Cafe using typescript.
+A sandbox repo to play around with the features of Test Cafe using Typescript.
 
 # How To Run
 
@@ -14,6 +14,10 @@ Once Test Cafe is installed run the following command:
 testcafe chrome
 
 Tests will now run in the Chrome browser.
+
+# How to Run In Parallel
+
+To run the tests in parallel add the '-c 2' command to run the tests concurrently in 2 browsers.
 
 # Tests
 
@@ -33,23 +37,11 @@ export testEnv=uat
 
 Config files are in JSON and can be found under /config.
 
-# Run Tests in Parallel
-
-In order to run tests in parallel run the following command from the root directory:
-
-ts-node ./runners/run-tests-in-parallel.ts
-
-The tests will run in parallel based on the 'fixturesToRunInParallel' values in .testcaferc.json.
-
 # Reports
 
 Tests ran normally have a report created here: 
 
 /reports/results.html
-
-Tests ran in parallel have a report created for each fixture here: 
-
-/reports/{date time}/{fixture name}_results.html
 
 Tests that fail will have a screenshot present in the Error Details page to the right of the test name.
 
