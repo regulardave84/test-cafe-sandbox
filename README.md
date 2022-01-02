@@ -7,17 +7,20 @@ A sandbox repo to play around with the features of Test Cafe using Typescript.
 Ensure that Node.js (https://nodejs.org/) and npm (https://www.npmjs.com/) 
 are installed on your computer and run the following command in the root directory of this project.
 
-npm install
+`npm install`
 
 Once Test Cafe is installed run the following command:
 
-testcafe chrome
+`testcafe chrome`
 
 Tests will now run in the Chrome browser.
 
 # How to Run In Parallel
 
 To run the tests in parallel add the '-c 2' command to run the tests concurrently in 2 browsers.
+E.g.
+
+`testcafe chrome -c 2`
 
 # Tests
 
@@ -30,10 +33,10 @@ This test suite is set to run against Prod by default.
 To run in a different environment e.g. uat run the following command before running the tests:
 
 On Windows:
-set testEnv=uat
+`set testEnv=uat`
 
 On Mac:
-export testEnv=uat
+`export testEnv=uat`
 
 Config files are in JSON and can be found under /config.
 
